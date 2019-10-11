@@ -4,10 +4,12 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 import logging
+from flask_mail import Mail
 from logging.handlers import SMTPHandler
 
 app = Flask(__name__)
 login = LoginManager(app)
+mail = Mail(app)
 login.login_view = 'login'
 app.config.from_object(Config)
 db = SQLAlchemy(app)
